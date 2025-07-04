@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>{{ isEdit ? 'Edit' : 'Add' }} User</h2>
+  
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <label>Name</label><br>
+      <input type="text"
+             name="name"
+             [(ngModel)]="user.name"
+             required /><br><br>
+  
+      <label>Email</label><br>
+      <input type="email"
+             name="email"
+             [(ngModel)]="user.email"
+             required /><br><br>
+  
+      <label>Address</label><br>
+      <input type="text"
+             name="address"
+             [(ngModel)]="user.address"
+             required /><br><br>
+  
+      <button type="submit" [disabled]="f.invalid">
+        {{ isEdit ? 'Update' : 'Create' }}
+      </button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+  
